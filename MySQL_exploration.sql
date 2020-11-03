@@ -23,8 +23,8 @@
 -- FROM order_items oi
 -- JOIN products p
 	-- ON p.product_id = oi.product_id
-    
-USE sql_hr;
+
+USE sql_hr ;
 
 SELECT
 	e.employee_id,
