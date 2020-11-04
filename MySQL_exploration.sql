@@ -59,7 +59,37 @@
 
 
 
-						-- EXAMPLE CODE
+						                    -- EXAMPLE CODE
+                                            -- Tables/rows manipulation
+                        -- Create Tables -- Confirmed 11/4/20
+-- USE mysql;
+-- CREATE TABLE student(
+--     student_id INT PRIMARY KEY,
+--     name VARCHAR(50),
+--     major VARCHAR(50)
+-- );
+
+							-- Add/Drop Columns in a Table -- Confirmed 11/4/20
+-- ALTER TABLE student
+-- ADD gpa DECIMAL(3,2);
+
+-- ALTER TABLE student
+-- DROP COLUMN gpa;
+
+
+						    -- Delete rows in a table  -- Confirmed 11/3/20
+-- DELETE FROM invoices
+-- WHERE client_id = (
+-- 		SELECT client_id
+-- 		FROM clients
+--      WHERE name = "Myworks");
+
+
+							-- Delete Tables/Databases -- Confirmed 11/3/20
+-- DROP TABLE sql_invoicing.invoices_archived
+-- DROP DATABASE sql_invoicing
+
+                                            -- QUERIES
 						-- Using REGEXP syntax to filter data -- Confirmed 11/3/20
 -- USE sql_store;
 -- SELECT *
@@ -103,7 +133,6 @@
 -- From employees e
 -- Join employees m
 -- 	 ON e.reports_to = m.employee_id
-
 
 
 						-- Multiple Joins at once -- Confirmed 11/3/20
@@ -165,26 +194,7 @@
 
 
 
-						-- Deleting rows in a table  -- Confirmed 11/3/20
--- DELETE FROM invoices
--- WHERE client_id = (
--- 		SELECT client_id
--- 		FROM clients
---      WHERE name = "Myworks");
-
-
-							-- oommand to Delete Tables -- Confirmed 11/3/20
--- DROP TABLE sql_invoicing.invoices_archived
-
-
-
-                            -- oommand to Delete Databases -- Confirmed 11/3/20
--- DROP DATABASE sql_invoicing
 
 
 
 							-- Okay so how do I rollback a change?
-
-
-    
-    
