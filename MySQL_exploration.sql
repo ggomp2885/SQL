@@ -10,33 +10,33 @@
 -- USE db_name  -  this let's sql know to check this database for all table and column names specified afterward. Can also double click in GUI.
 
 
-							-- SELECT 
--- SELECT col_name_1, col_name_2 
+							-- SELECT
+-- SELECT col_name_1, col_name_2
 -- SELECT col_name DISTINCT col_name  - brings up a table showing the only show the unique values in that column.
 -- SELECT col_name_1 AS new_col_name   - This AS will rename the selected column when it shows up in the table
 -- SELECT col_name new_name   - a simple space here can also be used instead of the AS operator.
 
 
- 							-- FROM 
+ 							-- FROM
 -- FROM tab_name
 -- FROM tab_name, tab_name    -    this is simple syntax for a cross join.
 
 
-							-- WHERE 
+							-- WHERE
 -- WHERE col_name = value
 -- WHERE col_name IN (‘str_1’, ‘str_2’)
 -- WHERE col_name LIKE ‘b%’
 -- WHERE col_name REGEXP ‘str_1|str_2’    -- REGEXP stands for “regular expression” - ‘[gim]e’ means it will pickup any entry, where any of the letters in the brackets, come before the letter outside of the bracket. Or ‘[a-h]e’ which includes all letters inbetwen.
 
 
-							-- ORDER BY 
+							-- ORDER BY
 -- ORDER BY col_name_1, col_name_2   --  defaults to least to greatest, or a-z
 -- ORDER BY col_name_1, DESC col_name_2 DESC  --  flips order to greatest to least, or z-a.
-        
-        
-							-- JOIN / USING 
+
+
+							-- JOIN / USING
 -- JOIN tab_name_2      --    for tables
--- 	ON tab_name_1.col_name = tab_name_2.col_name    
+-- 	ON tab_name_1.col_name = tab_name_2.col_name
 -- JOIN db_name.tab_name_1    --    for tables in other databases
 -- 	ON tab_name_2.col_name = tab_name_2.col_name
 -- 	AND tab_name_1.col_name = tab_name_2.col_name   --  add this for compound joins.
@@ -44,19 +44,19 @@
 -- USING (shared_col_name)   --   This is a little faster way to write the join command, as long as the reference ID column names are the same. Also you can put multiple column names at once, for 2 primary keys, by just separating them with a comma.
 -- NATURAL JOIN tab_name    --   This infers the reference ID column from the primary table, in the from statement, and the table in this statement
 
-							-- LIMIT 
+							-- LIMIT
 -- LIMIT # -   will return the amount of records up to this number. Can use LIMIT 6, 3 to skip the first # of records, and return the amount of records of the second #
 
-							-- UNION 
+							-- UNION
 -- UNION      --    That's it, this statement just goes between your multiple queries (Select statements), it will add the rows of the two tables together. To do this, both tables must have the same number of selected columns. (same shape).
 
-							-- INSERT 
+							-- INSERT
 -- INSERT INTO table_name
 -- INSERT INTO tab_name (‘col_name_1’, ‘col_name_2’)   --  this is for explicitly saying which columns to add the following values to, useful when you don't want to type out all the “default” words.
 -- 		VALUES (DEFAULT,#,#), (DEFAULT,#,#)   -- this follows the same order as the column names. DEFAULT can be used wherever you have predetermined rules for this column.
-							
-                            
-                                            -- SQL Built-in Functions 
+
+
+                                            -- SQL Built-in Functions
 -- SELECT COUNT(col_name)                -- example of a function with a more detailed filter
 -- FROM tab_name
 -- WHERE col_name_1 = 'string' AND col_name_2 > #
@@ -91,9 +91,9 @@
 -- INSERT INTO orders (customer_id, order_date, status)
 -- 	VALUES (1, '2019-01-02', 1);   -- This table also autoincrements the order_id number as "13"
 -- INSERT INTO order_items
--- 	VALUES 
+-- 	VALUES
 -- 	 (LAST_INSERT_ID(), 1, 1, 2.95), -- These "last_insert_id()" function are pulling up the "13" created in the statement above.
---   (LAST_INSERT_ID(), 2, 1, 3.95); 
+--   (LAST_INSERT_ID(), 2, 1, 3.95);
 
 							-- Add/Drop Columns in a Table -- Confirmed 11/4/20
 -- ALTER TABLE student
@@ -111,14 +111,14 @@
 -- WHERE client_id IN (3, 4) AND birth_date > 1990-01-01
 -- WHERE birth_date > '1990-01-01'
 -- WHERE client_id = (
--- 		 SELECT client_id 
+-- 		 SELECT client_id
 --          FROM clients
 --          WHERE name = "MyWorks")
 
                             -- copying of data into a new table -- Confirmed 11/3/20
 -- USE Sql_invoicing;
 -- CREATE TABLE invoices_archived AS
--- SELECT 
+-- SELECT
 -- 	i.invoice_id,
 --     i.number,
 --     c.name AS client,
@@ -130,8 +130,8 @@
 -- 		JOIN clients c
 -- 			USING (client_id)
 -- 	WHERE payment_date IS NOT NULL
-    
-    
+
+
 
 						    -- Delete rows in a table  -- Confirmed 11/3/20
 -- DELETE FROM invoices
@@ -146,7 +146,7 @@
 -- DROP DATABASE sql_invoicing
 
                                             -- QUERIES
-                            -- Query with a function -- Confirmed 11/4/20
+                            -- Query with a function -- Confirmed 11/4/20 
 -- SELECT SUM(total_sales), emp_id
 -- FROM works_with
 -- GROUP BY emp_id;  -- Gives the COUNT of each unique entry in the column
@@ -160,7 +160,7 @@
 --                     FROM works_with
 --                     WHERE works_with.total_sales > 30000 );
 
-                        
+
                             -- Using REGEXP syntax to filter data -- Confirmed 11/3/20
 -- USE sql_store;
 -- SELECT *
@@ -193,8 +193,8 @@
 -- FROM order_items oi
 -- JOIN products p
 -- 	ON p.product_id = oi.product_id
-    
-    
+
+
 						-- Joining a table to itself -- Confirmed 11/3/20
 -- USE sql_hr;
 -- SELECT
@@ -209,9 +209,9 @@
 						-- Multiple Joins at once -- Confirmed 11/3/20
 -- USE sql_invoicing;
 -- SELECT                                              -- columns
--- 	c.name as client_name, 
--- 	pm.name as payment_method, 
---     p.date, 
+-- 	c.name as client_name,
+-- 	pm.name as payment_method,
+--     p.date,
 --     p.amount,
 --     p.invoice_id
 -- 	FROM payments p                                    -- main table
@@ -219,7 +219,7 @@
 -- 			ON p.payment_method = pm.payment_method_id -- matching column
 -- 		JOIN clients c                                 -- secondary table
 -- 			ON p.client_id = c.client_id               -- matching column
-    
+
 						-- Union of rows example -- Confirmed 11//20
 -- SELECT first_name
 -- FROM employee
