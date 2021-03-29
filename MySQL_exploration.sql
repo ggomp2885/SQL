@@ -146,7 +146,7 @@
 -- DROP DATABASE sql_invoicing
 
                                             -- QUERIES
-                            -- Query with a function -- Confirmed 11/4/20 
+                            -- Query with a function -- Confirmed 11/4/20
 -- SELECT SUM(total_sales), emp_id
 -- FROM works_with
 -- GROUP BY emp_id;  -- Gives the COUNT of each unique entry in the column
@@ -195,7 +195,7 @@
 -- 	ON p.product_id = oi.product_id
 
 
-						-- Joining a table to itself -- Confirmed 11/3/20
+						-- Joining a table to itself -- Confirmed 11/3/20 
 -- USE sql_hr;
 -- SELECT
 -- 	 e.employee_id,
