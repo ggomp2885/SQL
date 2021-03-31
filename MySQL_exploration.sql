@@ -195,7 +195,7 @@
 -- 	ON p.product_id = oi.product_id
 
 
-						-- Joining a table to itself -- Confirmed 11/3/20 
+						-- Joining a table to itself -- Confirmed 11/3/20
 -- USE sql_hr;
 -- SELECT
 -- 	 e.employee_id,
@@ -257,7 +257,7 @@
 
 
 
-                        -- Dropping a trigger
+                        -- Dropping a trigger 
 -- USE trig_explore;
 -- DROP TRIGGER IF EXISTS trig_explore.my_trigger;
 
