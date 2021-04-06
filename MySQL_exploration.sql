@@ -237,7 +237,7 @@
 --                 message VARCHAR(100)
 -- );
 -- USE trig_explore;
--- DELIMITER $$         -- must change delimiter for triggers 
+-- DELIMITER $$         -- must change delimiter for triggers  
 -- CREATE TRIGGER my_trigger BEFORE INSERT
 --     ON employee
 --     FOR EACH ROW BEGIN
